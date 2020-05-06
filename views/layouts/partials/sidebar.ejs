@@ -1,0 +1,42 @@
+<div class="header">
+  <a href="#" class="nav-trigger"><span></span></a>
+</div>
+<div class="sidebar">
+  <ul>
+    <li <% if (page_name === 'dashboard') { %>class="active" <% } %>>
+      <a href="/admin/dashboard"
+        ><span><i class="fas fa-home"></i></span><span>Dashboard</span></a
+      >
+    </li>
+    <li <% if (page_name === 'pages') { %>class="active" <% } %>>
+      <a href="/admin/pages"
+        ><span><i class="fas fa-pager"></i></span><span>Pages</span></a
+      >
+    </li>
+    <li <% if (page_name === 'guidelines') { %>class="active" <% } %>>
+      <a href="/admin/posts"
+        ><span><i class="fas fa-road"></i></span><span>Guidelines</span></a
+      >
+    </li>
+    <li <% if (page_name === 'contacts') { %>class="active" <% } %>>
+      <a href="/admin/contacts"
+        ><span><i class="fas fa-phone"></i></span><span>Contact</span></a
+      >
+    </li>
+    <li <% if (page_name === 'add facebook pixel') { %>class="active" <% } %>>
+      <a href="/admin/facebook-pixel/add"
+        ><span><i class="fab fa-facebook"></i></span><span>Facebook Pixel</span></a
+      >
+    </li>
+    <li <% if (page_name === 'add google analytics') { %>class="active" <% } %>>
+      <a href="/admin/google-analytics/add"
+        ><span><i class="fab fa-google"></i></span><span>Google Analytics</span></a
+      >
+    </li>
+    <li>
+      <a href="/auth/Logout"
+        ><span><i class="fas fa-sign-out-alt"></i></span><span>Logout</span></a
+      >
+    </li>
+  </ul>
+</div>

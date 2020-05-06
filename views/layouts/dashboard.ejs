@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://bootswatch.com/4/journal/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="https://cdn.tiny.cloud/1/t5lz50t3injizf5h5re04v25cggqco2k31veinn1dnipykhr/tinymce/5/tinymce.min.js" referrerpolicy="origin"/></script>
+    <% if(typeof post != 'undefined') { %>    
+      <script>
+        var body = `<%- post.body %>`
+        console.log(body)
+        tinymce.init({
+          selector:'#body', 
+          plugins: ['link', 'image', 'preview'], 
+          images_upload_url: 'postAcceptor.php',
+          automatic_uploads: false,
+          setup: function (editor) {
+            editor.on('init', function (e) {
+              editor.setContent(body);
+            });
+          }
+        });
+      </script>
+    <% } else { %>
+      <script>
+        tinymce.init({
+          selector:'.body', 
+          plugins: ['link', 'image', 'preview'], 
+          images_upload_url: 'postAcceptor.php',
+          automatic_uploads: false,
+        });
+      </script>
+    <% } %>
+    <title>BeMo - Home</title>
+  </head>
+  <body>
+    <%- include('partials/navbar') %>
+    <div class="spacer"></div>
+    <div class="content">
+      <%- include('partials/sidebar') %>
+      <div class="main-content">
+        <div class="container">
+          <%- body %>
+        </div>
+      </div>
+    </div>
+    <%- include('partials/footer') %>
+
+    <script
+      src="https://kit.fontawesome.com/9de521efc8.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      $(document).ready(function () {
+        $(".menu-toggle").click(function () {
+          $(".menu-toggle").toggleClass("active");
+          $("nav").toggleClass("active");
+        });
+      });
+    </script>
+    <script>
+      $(document).ready(function () {
+        $(".nav-trigger").click(function () {
+          $(".sidebar").toggleClass("visible");
+        });
+      });
+    </script>
+  </body>
+</html>

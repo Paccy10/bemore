@@ -1,0 +1,29 @@
+<div class="pages">
+    <%- include('layouts/partials/messages') %>
+    <div class="header-section">
+      <h2>Contact Email</h2>
+    </div>
+    <table class="table mt-5">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">email</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if(typeof contacts != 'undefined'){ %> <% contacts.forEach(function(contact){ %>
+        <tr>
+          <td><%= contact.email %></td>
+          <td>
+            <a
+              href="/admin/contacts/<%= contact._id %>/edit"
+              class="btn btn-success btn-small"
+              >Edit</a
+            >
+          </td>
+        </tr>
+        <% }) %> <% } %>
+      </tbody>
+    </table>
+  </div>
+  

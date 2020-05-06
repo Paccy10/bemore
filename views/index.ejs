@@ -1,0 +1,17 @@
+<div class="home">
+  <div class="banner">
+    <div class="text">
+      CDA Interview Guide
+    </div>
+  </div>
+  <div class="container">
+    <div class="guidelines">
+      <% if(typeof posts != 'undefined') { %>
+        <% posts.forEach(function(post){ %>
+          <h2 class="title"><%= post.title %></h2>
+          <%- post.body %>
+        <% }); %>
+      <% } %>
+    </div>
+  </div>
+</div>

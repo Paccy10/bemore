@@ -1,0 +1,17 @@
+# Logs
+logs
+*.log
+.DS_Store
+
+#VScode configuration
+.vscode
+
+# Dependency directory
+node_modules
+
+#package-lock
+package-lock.json
+
+
+#Environment variables
+.env

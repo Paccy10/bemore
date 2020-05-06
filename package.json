@@ -1,0 +1,30 @@
+{
+  "name": "bemo",
+  "version": "1.0.0",
+  "description": "Developer Functional Test",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "seed": "node seeds/seed.js"
+  },
+  "author": "Pacifique Clement Ndayisenga",
+  "license": "ISC",
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.2",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "express-session": "^1.17.1",
+    "mongoose": "^5.9.11",
+    "mongoose-seed": "^0.6.0",
+    "node-html-parser": "^1.2.16",
+    "nodemailer": "^6.4.6",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}

@@ -1,0 +1,18 @@
+<header class="navbar-section">
+  <a href="/" class="logo">
+    <div>
+      <img src="/img/logo.png" alt="" />
+    </div>
+  </a>
+  <div class="menu-toggle"></div>
+  <nav>
+    <ul>
+      <li><a href="/" <% if (page_name === 'home') { %>class="active" <% } %>>Home</a></li>
+      <li><a href="/contact-us" <% if (page_name === 'contact-us') { %>class="active" <% } %>>Contact</a></li>
+      <% if(!isAuthenticated) { %>
+      <li><a href="/auth/login" <% if (page_name === 'login') { %>class="active" <% } %>>Login</a></li>
+      <% } %>
+    </ul>
+  </nav>
+  <div class="clearfix"></div>
+</header>

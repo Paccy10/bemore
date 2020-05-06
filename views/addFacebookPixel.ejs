@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row mt-5">
+      <div class="col-md-6 m-auto">
+        <div class="card card-body">
+          <h1 class="text-center mb-3">
+            <i class="fas fa-folder-plus"></i> Add Facebook Pixel
+          </h1>
+          <%- include('layouts/partials/messages') %>
+          <form action="/admin/facebook-pixel/add" method="POST">
+            <div class="form-group">
+              <label for="name">Code for <strong>head tag</strong> *</label>
+              <textarea name="head" id="head" cols="30" rows="10" class="form-control"><%= typeof head != 'undefined' ? head : '' %></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Add</button>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
+  
