@@ -12,7 +12,7 @@ const TagSchema = new mongoose.Schema({
   body: {
     type: String,
     required: true,
-  }
+  },
 });
 
 const Tag = mongoose.model("Tag", TagSchema);

@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const flash = require("connect-flash");
 const session = require("express-session");
 const passport = require("passport");
-const Tag = require("./models/Tag")
+const Tag = require("./models/Tag");
 
 require("./config/passport")(passport);
 
@@ -41,8 +41,8 @@ app.use(async (req, res, next) => {
   res.locals.error_msg = req.flash("error_msg");
   res.locals.error = req.flash("error");
   res.locals.isAuthenticated = req.isAuthenticated();
-  res.locals.facebookPixel = await Tag.findOne({title: 'facebook'});
-  res.locals.googleAnalytics = await Tag.findOne({title: 'google'});
+  res.locals.facebookPixel = await Tag.findOne({ title: "facebook" });
+  res.locals.googleAnalytics = await Tag.findOne({ title: "google" });
   next();
 });
 

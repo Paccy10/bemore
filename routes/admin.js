@@ -3,7 +3,7 @@ const { ensureAuthenticated } = require("../config/auth");
 const Page = require("../models/Page");
 const Post = require("../models/Post");
 const Contact = require("../models/Contact");
-const Tag = require("../models/Tag")
+const Tag = require("../models/Tag");
 
 const router = express.Router();
 
@@ -186,16 +186,13 @@ router.post("/posts/:id/edit", ensureAuthenticated, (req, res) => {
           title,
         });
       } else {
-            Post.updateOne(
-              { _id: req.params.id },
-              { title, body }
-            )
-              .then(() => {
-                req.flash("success_msg", "Post successfully updated");
-                res.redirect("/admin/posts");
-              })
-              .catch(err => console.log(err));
-          }
+        Post.updateOne({ _id: req.params.id }, { title, body })
+          .then(() => {
+            req.flash("success_msg", "Post successfully updated");
+            res.redirect("/admin/posts");
+          })
+          .catch(err => console.log(err));
+      }
     })
     .catch(err => console.log(err));
 });
@@ -215,7 +212,7 @@ router.get("/contacts", ensureAuthenticated, (req, res) => {
 router.get("/contacts/:id/edit", ensureAuthenticated, (req, res) => {
   Contact.findById(req.params.id)
     .then(contact => {
-      console.log(contact._id)
+      console.log(contact._id);
       res.render("editContact", {
         layout: "layouts/dashboard",
         page_name: "edit contact",
@@ -243,16 +240,13 @@ router.post("/contacts/:id/edit", ensureAuthenticated, (req, res) => {
           email,
         });
       } else {
-            Contact.updateOne(
-              { _id: req.params.id },
-              { email }
-            )
-              .then(() => {
-                req.flash("success_msg", "Contact Email successfully updated");
-                res.redirect("/admin/contacts");
-              })
-              .catch(err => console.log(err));
-          }
+        Contact.updateOne({ _id: req.params.id }, { email })
+          .then(() => {
+            req.flash("success_msg", "Contact Email successfully updated");
+            res.redirect("/admin/contacts");
+          })
+          .catch(err => console.log(err));
+      }
     })
     .catch(err => console.log(err));
 });
@@ -265,7 +259,7 @@ router.get("/facebook-pixel/add", ensureAuthenticated, (req, res) => {
 });
 
 router.post("/facebook-pixel/add", ensureAuthenticated, (req, res) => {
-  Tag.findOne({title: 'facebook'})
+  Tag.findOne({ title: "facebook" })
     .then(tag => {
       var { head } = req.body;
       var errors = [];
@@ -279,11 +273,8 @@ router.post("/facebook-pixel/add", ensureAuthenticated, (req, res) => {
           errors,
           head,
         });
-      }else {
-        Tag.updateOne(
-          { _id: tag._id },
-          { head }
-        )
+      } else {
+        Tag.updateOne({ _id: tag._id }, { head })
           .then(() => {
             req.flash("success_msg", "Facebook Pixel successfully added");
             res.redirect("/admin/dashboard");
@@ -302,7 +293,7 @@ router.get("/google-analytics/add", ensureAuthenticated, (req, res) => {
 });
 
 router.post("/google-analytics/add", ensureAuthenticated, (req, res) => {
-  Tag.findOne({title: 'google'})
+  Tag.findOne({ title: "google" })
     .then(tag => {
       var { head, body } = req.body;
       var errors = [];
@@ -315,13 +306,10 @@ router.post("/google-analytics/add", ensureAuthenticated, (req, res) => {
           page_name: "add google analytics",
           errors,
           head,
-          body
+          body,
         });
-      }else {
-        Tag.updateOne(
-          { _id: tag._id },
-          { head, body }
-        )
+      } else {
+        Tag.updateOne({ _id: tag._id }, { head, body })
           .then(() => {
             req.flash("success_msg", "Google Analytics Tag successfully added");
             res.redirect("/admin/dashboard");
